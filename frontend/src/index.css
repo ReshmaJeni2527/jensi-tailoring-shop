@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-cream text-ink font-sans antialiased;
+  overflow-x: hidden;
+}
+
+/* Focus states for keyboard users */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid theme("colors.maroon.DEFAULT");
+  outline-offset: 3px;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.section-eyebrow {
+  @apply text-maroon tracking-wide font-medium text-sm mb-3;
+}
+
+.reveal {
+  opacity: 0;
+}
+
+.reveal.is-visible {
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+/* Simple decorative divider used sparingly, matching the logo's motif */
+.stitch-divider {
+  width: 64px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, theme("colors.gold.DEFAULT"), transparent);
+}
+
+.container-shell {
+  @apply mx-auto w-full max-w-6xl px-6 md:px-10;
+}
